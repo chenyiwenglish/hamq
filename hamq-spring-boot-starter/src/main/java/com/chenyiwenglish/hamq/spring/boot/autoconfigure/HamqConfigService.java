@@ -1,10 +1,8 @@
 package com.chenyiwenglish.hamq.spring.boot.autoconfigure;
 
-import java.lang.annotation.Annotation;
-import java.util.Map;
-
 import com.chenyiwenglish.hamq.spring.boot.autoconfigure.annotation.MessageQueueConsumer;
 import com.chenyiwenglish.hamq.spring.boot.autoconfigure.annotation.MessageQueueProducer;
+import lombok.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.bind.Binder;
@@ -12,7 +10,8 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 import org.springframework.util.ClassUtils;
 
-import lombok.Data;
+import java.lang.annotation.Annotation;
+import java.util.Map;
 
 public class HamqConfigService {
     public static final Logger logger = LoggerFactory.getLogger(HamqConfigService.class);

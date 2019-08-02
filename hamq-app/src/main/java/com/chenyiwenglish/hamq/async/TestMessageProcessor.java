@@ -1,11 +1,10 @@
 package com.chenyiwenglish.hamq.async;
 
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.stereotype.Component;
-
 import com.chenyiwenglish.hamq.MessageProcessor;
 import com.chenyiwenglish.hamq.impl.HighAvailabilityMessageQueueConsumer;
 import com.chenyiwenglish.hamq.spring.boot.autoconfigure.annotation.MessageQueueConsumer;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.stereotype.Component;
 
 @Component
 public class TestMessageProcessor implements MessageProcessor, InitializingBean {

@@ -1,7 +1,5 @@
 package com.chenyiwenglish.hamq.spring.boot.autoconfigure.common;
 
-import java.util.Collection;
-
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
@@ -11,6 +9,8 @@ import org.springframework.context.EnvironmentAware;
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ResourceLoader;
+
+import java.util.Collection;
 
 public abstract class AbstractRegistrar implements ResourceLoaderAware, EnvironmentAware, BeanFactoryAware {
 

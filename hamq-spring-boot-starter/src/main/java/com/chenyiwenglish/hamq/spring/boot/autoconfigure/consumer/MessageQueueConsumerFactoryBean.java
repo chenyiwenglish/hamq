@@ -1,18 +1,16 @@
 package com.chenyiwenglish.hamq.spring.boot.autoconfigure.consumer;
 
-import java.lang.annotation.Annotation;
-
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.FactoryBean;
-import org.springframework.beans.factory.InitializingBean;
-
 import com.chenyiwenglish.hamq.impl.HighAvailabilityMessageQueueConsumer;
 import com.chenyiwenglish.hamq.mapper.MessageQueueInfoMapper;
 import com.chenyiwenglish.hamq.mapper.MessageQueueMapper;
 import com.chenyiwenglish.hamq.model.MessageQueueInfo;
 import com.chenyiwenglish.hamq.spring.boot.autoconfigure.HamqConfigService;
-
 import lombok.Data;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.FactoryBean;
+import org.springframework.beans.factory.InitializingBean;
+
+import java.lang.annotation.Annotation;
 
 @Data
 public class MessageQueueConsumerFactoryBean implements FactoryBean, InitializingBean, DisposableBean {

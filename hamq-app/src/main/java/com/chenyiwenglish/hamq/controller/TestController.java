@@ -1,11 +1,10 @@
 package com.chenyiwenglish.hamq.controller;
 
+import com.chenyiwenglish.hamq.impl.HighAvailabilityMessageQueueProducer;
+import com.chenyiwenglish.hamq.spring.boot.autoconfigure.annotation.MessageQueueProducer;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.chenyiwenglish.hamq.impl.HighAvailabilityMessageQueueProducer;
-import com.chenyiwenglish.hamq.spring.boot.autoconfigure.annotation.MessageQueueProducer;
 
 @Controller
 @RequestMapping("/hamq")

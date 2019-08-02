@@ -1,16 +1,16 @@
 package com.chenyiwenglish.hamq.spring.boot.autoconfigure;
 
-import java.io.IOException;
-
-import javax.sql.DataSource;
-
+import com.chenyiwenglish.hamq.MessageIdGenerator;
 import com.chenyiwenglish.hamq.impl.SimpleIdGenerator;
+import com.chenyiwenglish.hamq.mapper.MessageQueueInfoMapper;
+import com.chenyiwenglish.hamq.mapper.MessageQueueMapper;
 import com.chenyiwenglish.hamq.spring.boot.autoconfigure.consumer.MessageQueueConsumerRegistrar;
+import com.chenyiwenglish.hamq.spring.boot.autoconfigure.producer.MessageQueueProducerRegistrar;
+import com.zaxxer.hikari.HikariDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperFactoryBean;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -22,14 +22,9 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
-import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.chenyiwenglish.hamq.MessageIdGenerator;
-import com.chenyiwenglish.hamq.impl.AtomIdGenerator;
-import com.chenyiwenglish.hamq.mapper.MessageQueueInfoMapper;
-import com.chenyiwenglish.hamq.mapper.MessageQueueMapper;
-import com.chenyiwenglish.hamq.spring.boot.autoconfigure.producer.MessageQueueProducerRegistrar;
-import com.zaxxer.hikari.HikariDataSource;
+import javax.sql.DataSource;
+import java.io.IOException;
 
 @Configuration
 @ConditionalOnProperty(

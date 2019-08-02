@@ -1,18 +1,16 @@
 package com.chenyiwenglish.hamq.impl;
 
+import com.chenyiwenglish.hamq.MessageIdGenerator;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentLinkedQueue;
-
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
-
-import com.chenyiwenglish.hamq.MessageIdGenerator;
-
-import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class AtomIdGenerator implements MessageIdGenerator {

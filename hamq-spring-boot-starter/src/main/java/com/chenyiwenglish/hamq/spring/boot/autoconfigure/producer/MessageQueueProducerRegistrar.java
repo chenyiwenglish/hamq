@@ -1,14 +1,9 @@
 package com.chenyiwenglish.hamq.spring.boot.autoconfigure.producer;
 
-import java.lang.reflect.Field;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
 import com.chenyiwenglish.hamq.spring.boot.autoconfigure.annotation.MessageQueueProducer;
 import com.chenyiwenglish.hamq.spring.boot.autoconfigure.common.AbstractRegistrar;
+import lombok.Builder;
+import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.springframework.beans.factory.BeanInitializationException;
@@ -22,8 +17,12 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.core.type.filter.AbstractTypeHierarchyTraversingFilter;
 
-import lombok.Builder;
-import lombok.Data;
+import java.lang.reflect.Field;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class MessageQueueProducerRegistrar extends AbstractRegistrar implements ImportBeanDefinitionRegistrar {
     @Override

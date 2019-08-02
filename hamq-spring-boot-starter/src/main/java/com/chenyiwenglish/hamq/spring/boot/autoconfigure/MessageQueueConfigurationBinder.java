@@ -1,5 +1,9 @@
 package com.chenyiwenglish.hamq.spring.boot.autoconfigure;
 
+import org.springframework.boot.context.properties.bind.Bindable;
+import org.springframework.boot.context.properties.bind.Binder;
+import org.springframework.core.env.Environment;
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -7,10 +11,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
-
-import org.springframework.boot.context.properties.bind.Bindable;
-import org.springframework.boot.context.properties.bind.Binder;
-import org.springframework.core.env.Environment;
 
 public class MessageQueueConfigurationBinder {
     private static final String PREFIX = HamqProperties.PREFIX + ".queue";

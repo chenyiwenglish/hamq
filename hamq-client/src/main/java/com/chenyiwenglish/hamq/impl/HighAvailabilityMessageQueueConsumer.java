@@ -1,18 +1,5 @@
 package com.chenyiwenglish.hamq.impl;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-
-import com.chenyiwenglish.hamq.mapper.MessageQueueInfoMapper;
-import com.chenyiwenglish.hamq.mapper.MessageQueueMapper;
-import com.chenyiwenglish.hamq.model.LogInfo;
-import com.chenyiwenglish.hamq.model.Message;
-import com.chenyiwenglish.hamq.model.MessageQueueInfo;
-import org.slf4j.MDC;
-
 import com.alibaba.fastjson.JSON;
 import com.chenyiwenglish.hamq.MessageProcessor;
 import com.chenyiwenglish.hamq.MessageQueueConsumer;
@@ -20,9 +7,20 @@ import com.chenyiwenglish.hamq.MessageQueueException;
 import com.chenyiwenglish.hamq.enumeration.Constants;
 import com.chenyiwenglish.hamq.enumeration.FadingType;
 import com.chenyiwenglish.hamq.enumeration.Status;
-
+import com.chenyiwenglish.hamq.mapper.MessageQueueInfoMapper;
+import com.chenyiwenglish.hamq.mapper.MessageQueueMapper;
+import com.chenyiwenglish.hamq.model.LogInfo;
+import com.chenyiwenglish.hamq.model.Message;
+import com.chenyiwenglish.hamq.model.MessageQueueInfo;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
+
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Data

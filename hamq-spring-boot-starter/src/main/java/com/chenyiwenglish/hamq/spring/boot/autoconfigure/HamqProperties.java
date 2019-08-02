@@ -1,8 +1,7 @@
 package com.chenyiwenglish.hamq.spring.boot.autoconfigure;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-
 import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = HamqProperties.PREFIX)
 @Data
