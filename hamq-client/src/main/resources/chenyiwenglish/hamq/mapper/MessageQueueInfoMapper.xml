@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chenyiwenglish.hamq.mapper.MessageQueueInfoMapper">
+    <resultMap id="BaseResultMap" type="com.chenyiwenglish.hamq.model.MessageQueueInfo">
+        <id column="queue_id" property="queueId" jdbcType="BIGINT"/>
+        <result column="max_retry_count" property="maxRetryCount" jdbcType="INTEGER"/>
+        <result column="fading_type" property="fadingType" jdbcType="INTEGER"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="BaseColumnList">
+        queue_id,
+        max_retry_count,
+        fading_type,
+        status
+    </sql>
+
+    <sql id="TableName">message_queue_info</sql>
+
+    <select id="selectByQueueId" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM
+        <include refid="TableName"/>
+        WHERE queue_id = #{queueId,jdbcType=BIGINT}
+        LIMIT 1
+    </select>
+
+</mapper>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chenyiwenglish.hamq.mapper.MessageQueueMapper">
+    <resultMap id="BaseResultMap" type="com.chenyiwenglish.hamq.model.Message">
+        <id column="message_id" property="messageId" jdbcType="BIGINT"/>
+        <result column="extra_info" property="extraInfo" jdbcType="VARCHAR"/>
+        <result column="queue_id" property="queueId" jdbcType="BIGINT"/>
+        <result column="retry_count" property="retryCount" jdbcType="INTEGER"/>
+        <result column="message_body" property="messageBody" jdbcType="VARCHAR"/>
+        <result column="consume_time" property="consumeTime" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="BaseColumnList">
+        message_id,
+        extra_info,
+        queue_id,
+        retry_count,
+        message_body,
+        consume_time
+    </sql>
+
+    <sql id="TableName">message_queue</sql>
+
+    <select id="selectByQueueIdAndIdcAndConsumeTimeOldest" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumnList"/>
+        FROM
+        <include refid="TableName"/>
+        WHERE queue_id = #{queueId,jdbcType=BIGINT}
+        AND idc = #{idc,jdbcType=VARCHAR}
+        AND lock_time = '0000-00-00 00:00:00'
+        AND consume_time &lt; #{consumeTime,jdbcType=BIGINT}
+        ORDER BY consume_time ASC
+        LIMIT 1;
+    </select>
+
+    <insert id="insert">
+        INSERT INTO
+        <include refid="TableName"/>
+        (
+        <include refid="BaseColumnList"/>,
+        idc
+        )
+        VALUES
+        (
+        #{message.messageId,jdbcType=BIGINT},
+        #{message.extraInfo,jdbcType=VARCHAR},
+        #{message.queueId,jdbcType=BIGINT},
+        #{message.retryCount,jdbcType=INTEGER},
+        #{message.messageBody,jdbcType=VARCHAR},
+        #{message.consumeTime,jdbcType=BIGINT},
+        #{idc,jdbcType=VARCHAR}
+        )
+        ON DUPLICATE KEY UPDATE
+        consume_time = #{message.consumeTime,jdbcType=BIGINT},
+        retry_count = #{message.retryCount,jdbcType=INTEGER},
+        lock_time = '0000-00-00 00:00:00'
+    </insert>
+
+    <update id="lockByMessageId">
+        UPDATE
+        <include refid="TableName"/>
+        SET lock_time = now()
+        WHERE message_id = #{messageId,jdbcType=BIGINT} AND lock_time = '0000-00-00 00:00:00'
+    </update>
+
+    <delete id="deleteByMessageIdAndQueueId">
+        DELETE FROM
+        <include refid="TableName"/>
+        WHERE message_id = #{messageId,jdbcType=BIGINT} AND queue_id = #{queueId,jdbcType=INTEGER}
+    </delete>
+
+</mapper>

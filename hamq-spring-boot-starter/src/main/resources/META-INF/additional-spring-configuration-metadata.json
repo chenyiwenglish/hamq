@@ -1,0 +1,21 @@
+{
+  "properties": [
+    {
+      "name": "chenyiwenglish.hamq.queue",
+      "type": "java.util.Map<java.lang.String, com.chenyiwenglish.hamq.spring.boot.autoconfigure.HamqConfigService.MessageQueueConfiguration>"
+    }
+  ],
+  "hints": [
+    {
+      "name": "chenyiwenglish.hamq.queue.keys",
+      "providers": [
+        {
+          "name": "logger-name"
+        }
+      ]
+    },
+    {
+      "name": "chenyiwenglish.hamq.queue.values"
+    }
+  ]
+}

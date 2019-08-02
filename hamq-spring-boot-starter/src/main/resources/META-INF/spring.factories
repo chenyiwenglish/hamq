@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.chenyiwenglish.hamq.spring.boot.autoconfigure.HamqAutoConfiguration,\
+  com.chenyiwenglish.hamq.spring.boot.autoconfigure.HamqConfigAutoConfiguration
