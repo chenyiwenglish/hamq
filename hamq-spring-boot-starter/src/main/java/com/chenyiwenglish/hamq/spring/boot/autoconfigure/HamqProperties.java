@@ -15,6 +15,4 @@ public class HamqProperties {
     private Integer defaultStatus = 0;
 
     private String idc;
-
-    private String atomType;
 }

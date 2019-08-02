@@ -44,7 +44,6 @@ public class HamqConfigService {
         configuration.setFadingType(getFadingType(queueId));
         configuration.setStatus(getStatus(queueId));
         configuration.setIdc(properties.getIdc());
-        configuration.setAtomType(properties.getAtomType());
         return configuration;
     }
 
@@ -89,6 +88,5 @@ public class HamqConfigService {
         private Integer fadingType;
         private Integer status;
         private String idc;
-        private String atomType;
     }
 }
